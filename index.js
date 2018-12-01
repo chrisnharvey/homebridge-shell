@@ -16,9 +16,15 @@ function shellAccessory(log, config) {
   this.service = 'Switch'
   this.name = config['name']
 
+  this.powerState = false
+
   //retrieve fields from the config.json file
   this.onCommand = config['on']
   this.offCommand = config['off']
+}
+
+shellAccessory.prototype.getState = function (callback) {
+  callback(null, this.powerState)
 }
 
 shellAccessory.prototype.setState = function(powerOn, callback) {
@@ -54,6 +60,7 @@ shellAccessory.prototype.getServices = function() {
   switchService
     .getCharacteristic(Characteristic.On)
     .on('set', this.setState.bind(this))
+    .on('get', this.getState.bind(this))
 
   return [switchService]
 }
