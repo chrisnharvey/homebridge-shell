@@ -36,6 +36,7 @@ shellAccessory.prototype.setState = function(powerOn, callback) {
     if (error !== null) {
       console.log('exec error: ' + error)
     } else {
+      callback(null, true)
       accessory.log('Set ' + accessory.name + ' to ' + state)
     }
   })
