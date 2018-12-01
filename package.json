@@ -1,0 +1,8 @@
+{
+  "name": "homebridge-shell",
+  "keywords": ["homebridge-plugin"],
+  "engines": {
+    "homebridge": "^0.4.0",
+    "node": "^6.0.0"
+  }
+}
